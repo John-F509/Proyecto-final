@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script>
+        let operacion = "";
+        let numero1 = 0;
+        let numero2 = 0;
+        let numerot = 0;
+        let resultado = 0;
+
+        sumar = function () {
+            numero1 = document.getElementById("numero_1").value;
+            operacion = "+";
+            document.getElementById("resultado").innerHTML = Number(numero1) + operacion;
+            numerot = Number(numero1);
+            document.getElementById("numero_1").value = "";
+        };
+
+        restar = function () {
+            numero1 = document.getElementById("numero_1").value;
+            operacion = "-";
+            document.getElementById("resultado").innerHTML = Number(numero1) + operacion;
+            numerot = Number(numero1);
+            document.getElementById("numero_1").value = "";
+        };
+
+        multiplicar = function () {
+            numero1 = document.getElementById("numero_1").value;
+            operacion = "*";
+            document.getElementById("resultado").innerHTML = Number(numero1) + operacion;
+            numerot = Number(numero1);
+            document.getElementById("numero_1").value = "";
+        };
+
+        dividir = function () {
+            numero1 = document.getElementById("numero_1").value;
+            operacion = "/";
+            document.getElementById("resultado").innerHTML = Number(numero1) + operacion;
+            numerot = Number(numero1);
+            document.getElementById("numero_1").value = "";
+        };
+
+        igual = function () {
+            numero2 = document.getElementById("numero_1").value;
+            document.getElementById("numero_1").value = "";
+            if (operacion == "") {
+
+            }
+            else if (operacion == '+') {
+                resultado = Number(numerot) + Number(numero2);
+                document.getElementById("resultado").innerHTML += Number(numero2) + "=" + resultado;
+                operacion = "";
+            } else if (operacion == '-') {
+                resultado = Number(numerot) - Number(numero2);
+                document.getElementById("resultado").innerHTML += Number(numero2) + "=" + resultado;
+                operacion = "";
+            } else if (operacion == '/') {
+                if (numero2 != 0) {
+                    resultado = Number(numerot) / Number(numero2);
+                    document.getElementById("resultado").innerHTML += Number(numero2) + "=" + resultado;
+                } else {
+                    document.getElementById("resultado").innerHTML = 'NO PUEDES DIVIDIR ENTRE 0..!';
+                }
+                operacion = "";
+            } else if (operacion == '*') {
+                resultado = Number(numerot) * Number(numero2);
+                document.getElementById("resultado").innerHTML += Number(numero2) + "=" + resultado;
+                operacion = "";
+            } else {
+                document.getElementById("resultado").innerHTML = 'EL VALOR INGRESADO NO ES VALIDO..!';
+            }
+
+            reset = function(){
+                document.getElementById("resultado").innerHTML = "";
+            }
+
+
+
+        };
+    </script>
+</head>
+
+<body id="inicio">
+    <ul>
+        <li>
+            <a href="inicio.html">
+                <b>Inicio</b>
+            </a>
+        </li>
+
+        <li>
+            <a href="#nuestrasmarcas">
+                <b>Nuestras Marcas</b>
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><b>Explora..!</b></a>
+            <div class="dropdown-content">
+                <a href="mensaje.html">Mensaje de Bienvenida</a>
+                <a href="variable.html">Declarar Variable</a>
+                <a href="area.html">Area & Perimetro</a>
+                <a href="par.html">Par o Impar</a>
+                <a href="bisiesto.html">Bisiesto</a>
+                <a href="1-100.html">1 - 100</a>
+                <a href="multiplicar.html">Multiplicar</a>
+                <a href="factorial.html">Factorial</a>
+                <a href="fahrenheit.html">Fahrenheit</a>
+                <a href="palindromo.html">Palindromo</a>
+                <a href="fecha.html">Fecha y Hora</a>
+                <a href="minas.html">Busca Minas</a>
+                <a href="binaria.html">binaria</a>
+                <a href="ordenar.html">ordenar</a>
+                <a href="persona.html">persona</a>
+            </div>
+        </li>
+
+        <li id="cont">
+            <a href="contactanos.html">
+                <b>Contactanos</b>
+            </a>
+        </li>
+
+    </ul>
+
+        <div class="container">
+            <h1>Calculadora</h1>
+            <h3>Ingresa un valor:</h3>
+            <input type="number" id="numero_1" name="numero_1" required><br>
+            <div class="result" id="resultado"></div>
+            <input type="button" onclick="sumar();" value=" + " />
+            <input type="button" onclick="restar();" value=" - " />
+            <input type="button" onclick="multiplicar();" value=" * " />
+            <input type="button" onclick="dividir();" value=" / " />
+            <input type="button" onclick="igual();" value=" = " /><br>
+            <input type="button" onclick="reset();" value="Borrar Contenido"/><br>
+        </div>
+
+</body>
+
+</html>

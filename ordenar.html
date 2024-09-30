@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>SVE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script>
+        class Ordenador {
+            constructor(arr) {
+                this.arr = arr;
+            }
+            metodoBurbuja() {
+                let n = this.arr.length;
+                for (let i = 0; i < n - 1; i++) {
+                    for (let j = 0; j < n - 1 - i; j++) {
+                        if (this.arr[j] > this.arr[j + 1]) {
+
+                            let temp = this.arr[j];
+                            this.arr[j] = this.arr[j + 1];
+                            this.arr[j + 1] = temp;
+                        }
+                    }
+                }
+                return this.arr;
+            }
+        }
+        function ordenarNumeros() {
+            const input = document.getElementById('numerosInput').value;
+            const resultadoDiv = document.getElementById('resultado');
+            if (input === '') {
+                resultadoDiv.textContent = 'Por favor, ingresa números.';
+                return;
+            }
+            const numerosArray = input.split(',').map(num => parseFloat(num.trim()));
+            const ordenador = new Ordenador(numerosArray);
+            const arrayOrdenado = ordenador.metodoBurbuja();
+            resultadoDiv.textContent = ` Arreglo ordenado: ${arrayOrdenado.join(', ')}`;
+
+        }
+    </script>
+</head>
+
+<body id="inicio">
+    <ul>
+        <li><a href="inicio.html"><b>Inicio</b></a></li>
+        <li><a href="#nuestrasmarcas"><b>Nuestras Marcas</b></a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><b>Explora..!</b></a>
+            <div class="dropdown-content">
+                <a href="mensaje.html">Mensaje de Bienvenida</a>
+                <a href="variable.html">Declarar Variable</a>
+                <a href="area.html">Area & Perimetro</a>
+                <a href="par.html">Par o Impar</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="bisiesto.html">Bisiesto</a>
+                <a href="1-100.html">1 - 100</a>
+                <a href="multiplicar.html">Multiplicar</a>
+                <a href="factorial.html">Factorial</a>
+                <a href="fahrenheit.html">Fahrenheit</a>
+                <a href="palindromo.html">Palindromo</a>
+                <a href="fecha.html">Fecha y Hora</a>
+                <a href="minas.html">Busca Minas</a>
+                <a href="binaria.html">binaria</a>
+                <a href="persona.html">persona</a>
+            </div>
+        </li>
+        <li id="cont"><a href="contactanos.html"><b>Contactanos</b></a></li>
+    </ul>
+
+
+    <div class="container">
+    <h1>Ordenar Arreglo con Burbuja (POO)</h1>
+    <h3>Ingresa números separados por comas</h3>
+    <input type="text" id="numerosInput" placeholder="Ejemplo 1,2,3">
+    <button onclick="ordenarNumeros()">Ordenar</button><br>
+    <label id="resultado"></label>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+
+<body id="inicio">
+    <ul>
+        <li>
+            <a href="inicio.html">
+                <b>Inicio</b>
+            </a>
+        </li>
+
+        <li>
+            <a href="#nuestrasmarcas">
+                <b>Nuestras Marcas</b>
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><b>Explora..!</b></a>
+            <div class="dropdown-content">
+                <a href="mensaje.html">Mensaje de Bienvenida</a>
+                <a href="variable.html">Declarar Variable</a>
+                <a href="area.html">Area & Perimetro</a>
+                <a href="par.html">Par o Impar</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="bisiesto.html">Bisiesto</a>
+                <a href="1-100.html">1 - 100</a>
+                <a href="multiplicar.html">Multiplicar</a>
+                <a href="factorial.html">Factorial</a>
+                <a href="fahrenheit.html">Fahrenheit</a>
+                <a href="palindromo.html">Palindromo</a>
+                <a href="fecha.html">Fecha y Hora</a>
+                <a href="minas.html">Busca Minas</a>
+                <a href="binaria.html">binaria</a>
+                <a href="ordenar.html">ordenar</a>
+            </div>
+        </li>
+
+        <li id="cont">
+            <a href="contactanos.html">
+                <b>Contactanos</b>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="container">
+        <h1>Crear Objeto Persona</h1>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="number" id="edad" placeholder="Edad">
+        <input type="text" id="direccion" placeholder="Dirección">
+        <button onclick="crearPersona()">Crear Persona</button>
+        <div class="result" id="resultado"></div>
+        <input type="button" onclick="reset();" value="Borrar Contenido"/><br>
+    </div>
+    
+    <script>
+        // Definición de la clase Persona
+        class Persona {
+            constructor(nombre, edad, direccion) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.direccion = direccion;
+            }
+
+            mostrarInfo() {
+                return `Nombre: ${this.nombre}, Edad: ${this.edad}, Dirección: ${this.direccion}`;
+            }
+        }
+    
+        function crearPersona() {
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            const direccion = document.getElementById('direccion').value;
+    
+            if (nombre === '' || edad === '' || direccion === '') {
+                document.getElementById('resultado').textContent = 'Por favor, completa todos los campos.';
+                return;
+            }
+    
+            const nuevaPersona = new Persona(nombre, edad, direccion);
+    
+            document.getElementById('resultado').textContent = nuevaPersona.mostrarInfo();
+        }
+        reset = function(){
+                document.getElementById("resultado").innerHTML = "";
+                document.getElementById("nombre").value = "";
+                document.getElementById("edad").value = "";
+                document.getElementById("direccion").value = "";
+            }
+    </script>
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>SVE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const numeros = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+
+            function busquedaBinaria(arr, objetivo) {
+                let izquierda = 0;
+                let derecha = arr.length - 1;
+
+                while (izquierda <= derecha) {
+                    let medio = Math.floor((izquierda + derecha) / 2);
+
+                    if (arr[medio] === objetivo) {
+                        return medio;
+                    }
+                    if (arr[medio] > objetivo) {
+                        derecha = medio - 1;
+                    } else {
+                        izquierda = medio + 1;
+                    }
+                }
+                return -1;
+            }
+
+            window.buscar = function () {
+                const inputNumero = document.getElementById('inputNumero').value;
+                const resultadoDiv = document.getElementById('resultado');
+
+                if (inputNumero === '') {
+                    resultadoDiv.textContent = 'Por favor, ingresa un número.';
+                    return;
+                }
+
+                const numero = parseInt(inputNumero);
+                const resultado = busquedaBinaria(numeros, numero);
+
+                if (resultado !== -1) {
+                    resultadoDiv.textContent = `Número encontrado en el índice ${resultado}.`;
+                } else {
+                    resultadoDiv.textContent = 'Número no encontrado en la lista.';
+                }
+            }
+        });
+        reset = function (){
+            document.getElementById("resultado").innerHTML = "" ;
+            document.getElementById("base").value = "";
+        }
+    </script>
+</head>
+
+<body id="inicio">
+    <ul>
+        <li><a href="inicio.html"><b>Inicio</b></a></li>
+        <li><a href="#nuestrasmarcas"><b>Nuestras Marcas</b></a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><b>Explora..!</b></a>
+            <div class="dropdown-content">
+                <a href="mensaje.html">Mensaje de Bienvenida</a>
+                <a href="variable.html">Declarar Variable</a>
+                <a href="area.html">Area & Perimetro</a>
+                <a href="par.html">Par o Impar</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="bisiesto.html">Bisiesto</a>
+                <a href="1-100.html">1 - 100</a>
+                <a href="multiplicar.html">Multiplicar</a>
+                <a href="factorial.html">Factorial</a>
+                <a href="fahrenheit.html">Fahrenheit</a>
+                <a href="palindromo.html">Palindromo</a>
+                <a href="fecha.html">Fecha y Hora</a>
+                <a href="minas.html">Busca Minas</a>
+                <a href="ordenar.html">ordenar</a>
+                <a href="persona.html">persona</a>
+            </div>
+        </li>
+        <li id="cont"><a href="contactanos.html"><b>Contactanos</b></a></li>
+    </ul>
+
+    <div class="container">
+        <h1>Búsqueda Binaria</h1>
+        <p>Lista de números: <span id="numeros">[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</span></p>
+        <input type="number" id="inputNumero" placeholder="Número a buscar">
+        <button onclick="buscar()">Buscar</button>
+        <div class="result" id="resultado"></div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+
+</head>
+
+<body id="contacto">
+
+    <ul>
+        <li><a href="inicio.html"><b>Inicio</b></a></li>
+        <li><a href="nuestrasmarcas.html"><b>Nuestras Marcas</b></a></li>
+        <li id="cont"><a href="contactanos.html"><b>Contactanos</b></a></li>
+    </ul>
+
+    <h1>Formulario de Contacto</h1>
+
+    <div class="conta">
+        <form id="contactoForm">
+            <h3>Nombre completo:</h3>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <h3>Correo electrónico:</h3>
+            <input type="email" id="email" name="email" required><br>
+
+            <h3>Motivo de contacto:</h3>
+            <select id="motivo" name="motivo" required>
+                <option value="">Selecciona un motivo</option>
+                <option value="consulta">Consulta</option>
+                <option value="soporte">Soporte técnico</option>
+            </select><br>
+
+            <h3>Mensaje:</h3>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
+
+            <button type="submit">Enviar mensaje</button><br>
+            <button type="reset">Borrar contenido</button><br>
+        </form>
+
+        <div id="respuesta"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('contactoForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const motivo = document.getElementById('motivo').value;
+                const mensaje = document.getElementById('mensaje').value;
+
+               
+                const formData = {
+                    nombre: nombre,
+                    email: email,
+                    motivo: motivo,
+                    mensaje: mensaje
+                };
+
+                fetch('http://localhost:3000/enviar-mensaje', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                
+                        document.getElementById('respuesta').innerText = data;
+                    })
+                    .catch(error => {
+                        console.error('Error al enviar el formulario:', error);
+                        document.getElementById('respuesta').innerText = 'Error al enviar el mensaje.';
+                    });
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script>
+        multiplicar = function () {
+        let numero = document.getElementById("numero").value;
+        for(let i=1; i<=10; i++){
+            if (numero == ""){
+                document.getElementById("resultado").innerHTML = 'EL VALOR INGRESADO NO ES VALIDO..!';
+            }
+            document.getElementById("resultado").innerHTML +=  numero + '*' + i + '='+ (numero*i) + "<br>";
+        }
+    }
+    reset = function(){
+                document.getElementById("resultado").innerHTML = "";
+                document.getElementById("numero").value = "";
+            }
+    </script>
+</head>
+
+<body id="inicio">
+    <ul>
+        <li>
+            <a href="inicio.html">
+                <b>Inicio</b>
+            </a>
+        </li>
+
+        <li>
+            <a href="#nuestrasmarcas">
+                <b>Nuestras Marcas</b>
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><b>Explora..!</b></a>
+            <div class="dropdown-content">
+                <a href="mensaje.html">Mensaje de Bienvenida</a>
+                <a href="variable.html">Declarar Variable</a>
+                <a href="area.html">Area & Perimetro</a>
+                <a href="par.html">Par o Impar</a>
+                <a href="calculadora.html">Calculadora</a>
+                <a href="bisiesto.html">Bisiesto</a>
+                <a href="1-100.html">1 - 100</a>
+                <a href="factorial.html">Factorial</a>
+                <a href="fahrenheit.html">Fahrenheit</a>
+                <a href="palindromo.html">Palindromo</a>
+                <a href="fecha.html">Fecha y Hora</a>
+                <a href="minas.html">Busca Minas</a>
+                <a href="binaria.html">binaria</a>
+                <a href="ordenar.html">ordenar</a>
+                <a href="persona.html">persona</a>
+            </div>
+        </li>
+
+        <li id="cont">
+            <a href="contactanos.html">
+                <b>Contactanos</b>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="container">
+        <h1>Multiplicador</h1>
+        <h3>Ingrese el valor a Multiplicar </h3>
+        <input type="number" id="numero" name="numero" required><br>
+        <label id="resultado"></label><br>
+        <input type="button" onclick="multiplicar();" value="Mostrar numeros" /><br>
+        <input type="button" onclick="reset();" value="Borrar Contenido"/><br>
+    </form>
+    </section>
+
+
+
+</body>
+
+</html>
+
