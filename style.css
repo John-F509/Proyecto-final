@@ -421,3 +421,11 @@ button {
     box-shadow: 15px 15px 40px rgba(0, 110, 255, 0.952);
     display: flex;
 }
+
+footer {
+    margin-top: 5%;
+    background: #095bf3a8;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+}
